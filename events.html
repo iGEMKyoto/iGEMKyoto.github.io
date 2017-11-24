@@ -1,0 +1,909 @@
+<!doctype html>
+
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>iGEM Kyoto</title>
+    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function() {
+        $("#header").load("./header.html");
+        $("#footer").load("./footer.html");
+        });
+    </script>
+    <script type="text/javascript">
+        p=2017;
+        pass=new Array(1,0,0,0,0);
+        function events(year)
+        {
+            var a='kyoto-events-'+p
+            var dpoff=document.getElementById(a);
+            dpoff.style.display="none";
+            var b='kyoto-events-'+year
+            var dpon=document.getElementById(b);
+            dpon.style.display="block";
+            p=year;
+        
+            if(year=="2012")
+            {
+                if(pass[0]==1)
+                {
+                    pass[1]=1;
+                    pass[0]=0;
+                }
+                else
+                {
+                    pass[0]=1;
+                    for (i=1;i<5;i++){
+                        pass[i]=0;
+                    }
+                }
+            }
+            if(year=="2010")
+            {
+                if(pass[1]==1)
+                {
+                    pass[2]=1;
+                    pass[1]=0;
+                }
+                else
+                {
+                    pass[0]=1;
+                    for (i=1;i<5;i++){
+                        pass[i]=0;
+                    }
+                }
+            }
+            if(year=="2011")
+            {
+                if(pass[2]==1)
+                {
+                    pass[3]=1;
+                    pass[2]=0;
+                }
+                else if(pass[4]==1)
+                {
+                    var gameback=document.getElementById("kyoto-game-background");
+                    var gamecenter=document.getElementById("kyoto-game-center");
+                    gameback.style.display="block";
+                    gamecenter.style.display="block";
+                }
+                else
+                {
+                    pass[0]=1;
+                    for (i=1;i<5;i++){
+                        pass[i]=0;
+                    }
+                }
+            }
+            if(year=="2014")
+            {
+                if(pass[3]==1)
+                {
+                    pass[4]=1;
+                    pass[3]=0;
+                }
+                else
+                {
+                    pass[0]=1;
+                    for (i=1;i<5;i++){
+                        pass[i]=0;
+                    }
+                }
+            }
+    }
+    dx=155, dy=100;
+    x=55, sec=101, pnt=0, dmg=-15, lag=-3;
+    mode=0;
+    var i;
+    baspos=new Array(3);
+    for (i=0;i<3;i++){
+        baspos[i]=new Array(4);
+    }
+    for(i=0;i<3;i++){
+        for(j=0;j<4;j++){
+            baspos[i][j]=0;
+        }
+    }
+    catpos=new Array(0,1);
+
+    document.onkeydown=action;
+
+
+    function rnd(){
+        return Math.floor(Math.random()*4);
+    }
+
+    function loop()
+    {
+        if(sec>0)
+        {
+            if(dmg<100)
+            {
+                setTimeout("loop()",1000);
+            }
+            else
+            {
+                setTimeout("gameover()",1);
+            }
+        }
+        else
+        {
+            setTimeout("gameover()",1);
+        }
+
+        var a,b;
+        var base0=document.getElementById("image0");
+        var base1=document.getElementById("image1");
+        var base2=document.getElementById("image2");
+        var time=document.getElementById("time");
+        var score=document.getElementById("score");
+        var damage=document.getElementById("damage");
+
+        if(baspos[2][catpos[0]]+catpos[1]==5)
+        {
+            pnt+=5;
+        }
+        else{
+            dmg+=5;
+        }
+        sec-=1;
+        
+        time.innerHTML=sec;
+        score.innerHTML=pnt;
+        damage.innerHTML=dmg;
+
+        for(j=0;j<4;j++){
+            baspos[2][j]=baspos[1][j];
+        }
+        for(j=0;j<4;j++){
+            baspos[1][j]=baspos[0][j];
+        }
+        
+        a=rnd();
+        b=rnd();
+        for(j=0;j<4;j++){
+            baspos[0][j]=0;
+        }
+        baspos[0][a]=b+1;
+
+        for(j=0;j<4;j++){
+            if(baspos[0][j]>0){
+                base0.style.left=55+155*j+"px";
+                if(baspos[0][j]==1)
+                {
+                    base0.src="./img/Kyoto-game-1.png";
+                }
+                if(baspos[0][j]==2)
+                {
+                    base0.src="./img/Kyoto-game-2.png";
+                }
+                if(baspos[0][j]==3)
+                {
+                    base0.src="./img/Kyoto-game-3.png";
+                }
+                if(baspos[0][j]==4)
+                {
+                    base0.src="./img/Kyoto-game-4.png";
+                }
+            }
+        }
+        for(j=0;j<4;j++){
+            if(baspos[1][j]>0){
+                base1.style.left=55+155*j+"px";
+                if(baspos[1][j]==1)
+                {
+                    base1.src="./img/Kyoto-game-1.png";
+                }
+                if(baspos[1][j]==2)
+                {
+                    base1.src="./img/Kyoto-game-2.png";
+                }
+                if(baspos[1][j]==3)
+                {
+                    base1.src="./img/Kyoto-game-3.png";
+                }
+                if(baspos[1][j]==4)
+                {
+                    base1.src="./img/Kyoto-game-4.png";
+                }
+            }
+        }
+        for(j=0;j<4;j++){
+            if(baspos[2][j]>0){
+                base2.style.left=55+155*j+"px";
+                if(baspos[2][j]==1)
+                {
+                    base2.src="./img/Kyoto-game-1.png";
+                }
+                if(baspos[2][j]==2)
+                {
+                    base2.src="./img/Kyoto-game-2.png";
+                }
+                if(baspos[2][j]==3)
+                {
+                    base2.src="./img/Kyoto-game-3.png";
+                }
+                if(baspos[2][j]==4)
+                {
+                    base2.src="./img/Kyoto-game-4.png";
+                }
+            }
+        }
+        lag+=1;
+        if(lag<0)
+        {
+            var damage=document.getElementById("damage");
+            damage.innerHTML=""
+        }
+    }
+
+    function gameover()
+    {
+        var gameover=document.getElementById("gameover");
+        var showscore=document.getElementById("showscore");
+        showscore.innerHTML="SCORE : "+pnt;
+        mode=2;
+        gameover.style.display="inline";
+    }
+
+    function action()
+    {
+        if(event.keyCode==37)
+        {
+            if(catpos[0]!=0)
+            {
+                var catcher=document.getElementById("image3");
+                catpos[0]-=1;
+                x-=dx;
+                catcher.style.left=x+"px";
+            }
+        }
+        if(event.keyCode==39)
+        {
+            if(catpos[0]!=3)
+            {
+                var catcher=document.getElementById("image3");
+                catpos[0]+=1;
+                x+=dx;
+                catcher.style.left=x+"px";
+            }
+        }
+        if(event.keyCode==40)
+        {
+            var catcher=document.getElementById("image3");
+            catpos[1]=catpos[0]+1;
+            catcher.src=catpos[1]+".png";
+            if(catpos[1]==1)
+            {
+                catcher.src="./img/Kyoto-game-1.png"
+            }
+            if(catpos[1]==2)
+            {
+                catcher.src="./img/Kyoto-game-2.png"
+            }
+            if(catpos[1]==3)
+            {
+                catcher.src="./img/Kyoto-game-3.png"
+            }
+            if(catpos[1]==4)
+            {
+                catcher.src="./img/Kyoto-game-4.png"
+            }
+        }
+        if(event.keyCode==13)
+        {
+            if(mode==0)
+            {
+                var gamestart=document.getElementById("gamestart");
+                gamestart.style.display="none";
+                mode=1;
+                setTimeout("loop()",1);
+            }
+            if(mode==2)
+            {
+                var gameover=document.getElementById("gameover");
+                mode=1;
+                setTimeout("reset()",1);
+                gameover.style.display="none";
+                setTimeout("loop()",10);
+            }
+        }
+    }
+
+    function reset(){
+        x=55, sec=101, pnt=0, dmg=-15;
+        var i;
+        for (i=0;i<3;i++){
+            baspos[i]=new Array(4);
+        }
+        for(i=0;i<3;i++){
+            for(j=0;j<4;j++){
+                baspos[i][j]=0;
+            }
+        }
+        catpos[0]=0;
+        catpos[1]=1;
+        var base0=document.getElementById("image0");
+        var base1=document.getElementById("image1");
+        var base2=document.getElementById("image2");
+        var catcher=document.getElementById("image3");
+        base0.src="";
+        base1.src="";
+        base2.src="";
+        catcher.style.left="55px";
+        lag=-3;
+    }
+    </script>
+    <style type="text/css">
+        #kyoto-header-line{
+            background-color:transparent;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="header">
+</div>
+
+<div id="kyoto-events-background">
+</div>
+
+<div id="kyoto-background-color">
+</div>
+
+<div id="kyoto-wrapper">
+    <div class="kyoto-chapter">
+        <img src="./img/Kyoto-events-text.png">
+    </div>
+    <table id="kyoto-yearselect">
+        <tr>
+            <td><a href="#" onClick="events('2017');">2017</a></td>
+            <td><a href="#" onClick="events('2016');">2016</a></td>
+            <td><a href="#" onClick="events('2015');">2015</a></td>
+            <td><a href="#" onClick="events('2014');">2014</a></td>
+            <td><a href="#" onClick="events('2013');">2013</a></td>
+            <td><a href="#" onClick="events('2012');">2012</a></td>
+            <td><a href="#" onClick="events('2011');">2011</a></td>
+            <td><a href="#" onClick="events('2010');">2010</a></td>
+        </tr>
+    </table>
+
+    <div id="kyoto-events-content">
+
+        <table class='kyoto-events-table' id="kyoto-events-2017">
+            <tr>
+                <td class='kyoto-events-date'>19 Feb. 2017</td>
+                <td>京都大学で関西交流会・大同窓会を行いました。KyotoチームのほかにUT-Tokyo、TUS、Hokkaido、Gifu、Kobe、KIT-Kyotoの皆様にご参加いただき、各チームの現役メンバーやOBによるプレゼンなどを通して情報共有を行うことができました。<br>
+                    <img src="./img/070219_KansaiKouryuukai.jpg">
+                </td>
+            </tr>
+        </table>
+
+        <table class='kyoto-events-table' id="kyoto-events-2016">
+            <tr>
+                <td class='kyoto-events-date'>3 Nov. 2016</td>
+                <td>
+                    ボストンからはNYを経由したので、NYを観光してから日本へ帰りました。<br>
+                    <img src="./img/PB030133igemkyoto2016NY2.JPG">
+                    <img src="./img/PB030003igemkyoto2016NY3.JPG">
+                    <img src="./img/PB040031kyoto2016.JPG">
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>1 Nov. 2016</td>
+                <td>
+                    大会後はボストンを観光しました。<br>
+                    <img src="./img/Image_c58b48bkyoto2016boston.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>22 May. 2016</td>
+                <td>
+                    新入生歓迎会で伏見稲荷に行ってきました。伏見稲荷に行った後の食事会でも親睦を深めることが出来ました。<br>
+                    <img src="./img/2016522hushimiinari.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>14,15 May. 2016</td>
+                <td>
+                    東京大学の5月祭の企画でiGEM　Kyotoのプロジェクト内容を発表してきました。その後は各日本チームのメンバーと交流会を兼ねて食事会をしました。<br>
+                    <img src="./img/Gogatusaikyotophoto2.jpg">
+                    <img src="./img/Gogatusaikyotophoto1.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>3 Apr. 2016</td>
+                <td>
+                    下記日程で新入生歓迎会を行います。物理選択の方や、実験の経験が無い方でもお気軽にお越しください♫<br>
+                    <img src="./img/Kyoto-shinkan2016sp.PNG">
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>15 Mar. 2016</td>
+                <td>
+                    皆様のご支援により、京都大学学生チャレンジコンテストSPECでの補助金が目標額の50万円に到達致しました！ ご支援頂いた皆様に心より御礼申し上げます。今後とも、iGEM Kyotoをよろしくお願いいたします。<br>
+                    <img src="./img/Kyoto-spec-result.PNG">
+                    <a href=http://www.kikin.kyoto-u.ac.jp/spec/>京都大学学生チャレンジコンテストSPEC</a>
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>13 Mar. 2016</td>
+                <td>
+                    3/13に関西交流会を実施しました。我々KyotoチームのほかにUT, KAIT, Kobeの皆様にご参加頂き、お菓子を食べながらの歓談を交えたアットホームな雰囲気となりました。交流会では各チームの新プロジェクトについてプレゼンを行ったり、運営状況の共有を行ったりしました。新しく設立したばかりのKobeチームに新歓や実習室確保に関するノウハウを伝えるなど、有意義な時間となりました。
+                    <img src="./img/Kouryukai2016.jpg"></td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>20 Jan. 2016</td>
+                <td>
+                    この度、igemkyotoの2016年度プロジェクトがSPEC(Student Projects for Enhancing Creativity）に採択されました。SPECは2015年の秋よりスタートしました。山極総長が打ち出す「WINDOW構想」の精神に基づき、京大生たちの挑戦を応援するプログラムです。我々、igemkyotoは大会参加費の上昇に苦しんでいます。皆様のご厚意を賜ることができれば幸いです。 SPEC特設サイトは
+                    <a href="http://www.kikin.kyoto-u.ac.jp/spec/index.html">こちら</a><br>
+                    <img src="./img/Kyoto-2016SPEC.jpg"></td>
+            </tr>
+        </table>
+
+        <table class='kyoto-events-table' id="kyoto-events-2015">
+            <tr>
+                <td class='kyoto-events-date'>22～23 Nov. 2015</td>
+                <td>
+                    11月祭研究室企画にてiGEM Kyotoのブースを出展し、2016年度大会に向けたプロジェクトについてポスター発表しました。両日とも多くの人に来ていただけました。メンバーにとっても有意義な時間となりました。<br>
+                    <img src="./img/Kyoto-2015NF1.jpg">
+                    <img src="./img/Kyoto-2015NF2.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>21 May 2015</td>
+                <td>
+                    <img src="./img/Toiletpaperad1.jpg"><br> 京都大学学内でこのようなトイレットペーパーを見たことはありませんか？
+                    <br> 吉田南構内のトイレに設置されているこのトイレットペーパー、実は「第1回サステイナブルキャンパス構築コンテスト」で発表されたアイディアを元に作られたものです。京都大学では新歓期に捨てられる大量のビラが問題となっていますが、そのビラを削減するために提案されました(ちなみに提案者の一人はiGEMKyotoのOBさんです！)。
+                    <br> 気になる方は一度見てみては？
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>16 May 2015<br>・17 May 2015</td>
+                <td><b>東大五月祭</b><br> 東京大学の五月祭でポスター発表をしてきました。
+                    <br> 学生や社会人など多くの方が見に来てくださり、iGEMの活動や遺伝子組み換えの安全性などについて説明をさせていただきました。多くの意見、感想をありがとうございました。
+                    <br> 今後もiGEM Kyotoをよろしくお願いいたします。<br>
+                    <img src="./img/2015gogatsusai1.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>10 May 2015</td>
+                <td>新入生との親睦を深めるため、夜の伏見稲荷大社に行ってきました！<br> 本殿で参拝したのち、夕方から登りはじめ、朱に輝く鳥居をくぐりながら伏見一帯を見渡せる夜景を楽しみました。
+                    <br> 新入生との話も盛り上がり、有意義な親睦会になりました！
+                    <br>
+                    <div class="kyoto-events-photo">
+                        <img src="./img/KyotoInari3.jpg">
+                        <img src="./img/KyotoInari2.jpg">
+                        <img src="./img/KyotoInari4.jpg">
+                        <img src="./img/KyotoInari1.jpg">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>16 Apr. 2015</td>
+                <td><b>新歓情報</b><br>
+                    <s>iGEMKyotoは現在新歓期間です！<br>
+                    4/16(木),20(月),28(火) 18:20に本部キャンパス楠前でお待ちしております。<br>
+                    興味のある方はigemkyoto_shinkan@hotmail.co.jpまでお気軽にご連絡下さい！</s><br> 新歓は終了しました。
+                    <br> 途中からの参加も歓迎しますのでiGEMの活動に興味を持たれましたら
+                    <a href="mailto:igemkyoto_shinkan@hotmail.co.jp">igemkyoto_shinkan@hotmail.co.jp</a>まで！<br></td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>16 Apr. 2015</td>
+                <td>iGEM Kyotoホームページをリニューアルしました！</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>25 Feb. 2015</td>
+                <td>この度、iGEMkyotoはiGEM2015への不参加を正式に決定致しました。<br> iGEM2016での再参加へ向け鋭意活動中です。
+                    <br> iGEMJapanの皆様、2015大会でのご健闘をお祈りしております。2016でまたお会いしましょう！
+                </td>
+            </tr>
+        </table>
+
+        <table class='kyoto-events-table' id="kyoto-events-2014">
+            <tr>
+                <td class='kyoto-events-date'>30 Oct. 2014<br>～3 Nov. 2014</td>
+                <td>iGEM 2014 Giant Jamboreeに参加しました。見事金メダルを獲得しました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>19 Sep. 2014</td>
+                <td>日本遺伝学会第86回大会に参加しました。<br> 同じiGEMチームと研究成果のプレゼンとポスター発表をしました。他のチームとも交流でき、どのようにお互い協力するか、他のチームがどのように研究しているのかを知ることができる、良い機会になりました。
+                    <br>
+                    <img src="./img/KyotoGSJ1.jpg">
+                    <img src="./img/KyotoGSJ2.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>24 Aug. 2014</td>
+                <td>首都大学東京で行われたiGEMJapan交流会に参加しました！<br> 日本の他チームと、今年のプロジェクトの構想をお互いに発表、質疑応答をしました。発表の後は立食会をし、他チームとの交流を深めることができました。
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>17 May 2014<br>～18 May 2014</td>
+                <td>東京大学の五月祭にて、一般の方にポスター発表をしてきました。高校生や社会人の方など、たくさんの人にiGEMの活動やプロジェクトについて説明をさせていただきました。<br>
+                    <img src="./img/Kyotogogatsusai2014.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>10 Apr. 2014</td>
+                <td>新入生歓迎説明会を行いました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>12 Mar. 2014</td>
+                <td>iGEM関西交流会を京都大学で開きました。Kyoto, Nagahama, UT-Tokyo, KIT-Kanazawa, Gifu, Tukubaの計6チームが一堂に会し、プロジェクトについての意見交換や困ったことの対処法の共有などをしました。</td>
+            </tr>
+        </table>
+
+        <table class='kyoto-events-table' id="kyoto-events-2013">
+            <tr>
+                <td class='kyoto-events-date'>23 Nov. 2013<br>～24 Nov. 2013</td>
+                <td>11月祭研究室企画にてiGEM Kyotoのブースを出展し、今年のプロジェクトについてポスター発表しました。両日ともに多くの方にお越しいただき有難うございました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>5 Nov. 2013<br>・7 Nov. 2013</td>
+                <td>後期新歓を行いました！合計で6人の方に参加していただきました！ </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>23 Oct. 2013</td>
+                <td>iGEM Kyoto 2013の反省会を行いました。ここで、2013年度の活動は終了で、今後はiGEM Kyoto 2014として活動していきます。今後ともよろしくお願いします。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>4 Oct. 2013<br>～6 Oct. 2013</td>
+                <td>香港の中文大学で、iGEM 2013 Asia Regional Jamboreeに参加しました。銀メダルを獲得しましたが、World Championship Jamboreeには出場できませんでした。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>18 May 2013<br>～19 May 2013</td>
+                <td>東京大学の五月祭で、ポスター発表をしてきました。中学生、高校生や社会人などのたくさんの方にiGEMについて知ってもらいました。終了後の懇親会では、他のチームの方と交流を深めました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>26 Mar. 2013</td>
+                <td>今年からiGEMに参加する長浜バイオ大学チーム(iGEM Biwako)と合同勉強会を開きました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>4 Mar. 2013<br>～9 Mar. 2013</td>
+                <td>International Student Seminar(<a href="http://www.lif.kyoto-u.ac.jp/11thiss/index.html">ISS</a>)でiGEM Kyotoとしてポスター発表を行いました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>20 Feb. 2013</td>
+                <td>iGEM関西交流会を行いました。iGEM Kyoto, iGEM Osaka, iGEM KIT-Kyoto, iGEM Biwako, iGEM UT-Tokyoの5チーム、計23人のiGEMerに参加していただけました。情報交換をし、交流を深めました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>12 Jan. 2013</td>
+                <td>2013年新年会を行いました。現メンバーだけでなく、OBOGの方や新メンバーにも参加していただき、楽しい時間を過ごしました。今年もiGEM Kyotoをよろしくお願いします。</td>
+            </tr>
+        </table>
+
+        <table class='kyoto-events-table' id="kyoto-events-2012">
+            <tr>
+                <td class='kyoto-events-date'>19 Dec. 2012</td>
+                <td>後期新入生歓迎会・説明会を行いました。7名の新入生の方に参加していただきました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>23 Nov. 2012<br>～25 Nov. 2012</td>
+                <td>11月祭研究室企画にてiGEM Kyotoのブースを出展しました。両日ともに多くの方にお越しいただきありがとうございました。<br> その時に取材を受け、めざましテレビで放送されました。
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>22 Nov. 2012</td>
+                <td>第3回全学共通教育国際学生シンポジウムにおいて、iGEM Kyotoの論文"Flower Fairy E.coli"が採録され、寺坂さんが英語で口頭発表を行いました。<br> その結果、アインシュタイン賞を受賞しました。
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>20 Nov. 2012</td>
+                <td>2012年度の報告会を行いました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>2 Nov. 2012<br>～5 Nov. 2012</td>
+                <td>MITで開かれた本戦に参加しました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>4 Oct. 2012<br>～8 Oct. 2012</td>
+                <td>香港で開かれたアジア予選に参加しました。見事金メダルを勝ち取り、MITで開かれる本戦へ駒を進めました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>13 Aug. 2012</td>
+                <td>首都大学東京で開かれたiGEM JAPAN交流会に参加しました。互いにプレゼンテーションをして質問をかわし、有意義な時間を過ごしました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>3 Jun. 2012</td>
+                <td>新入生含むiGEM Kyoto2012メンバーでBBQをしました。皆で楽しい時間を過ごせ、親睦を深められました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>11 May 2012</td>
+                <td>第三回新入生説明会をしました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>27 Apr. 2012</td>
+                <td>第二回新入生説明会をしました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>13 Apr. 2012</td>
+                <td>第一回新入生説明会をしました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>12 Jan. 2012</td>
+                <td>新年会を開きました。 <br> 美味しい食事とお酒で大いに盛り上がりました
+                </td>
+            </tr>
+        </table>
+
+        <table class='kyoto-events-table' id="kyoto-events-2011">
+            <tr>
+                <td class='kyoto-events-date'>23 Nov. 2011<br>～26 Nov. 2011</td>
+                <td>11月祭研究室企画にてiGEM Kyotoのブースを出展しました。<br> 両日ともに多くの方にお越しいただき有難うございました。
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>23 Nov. 2011</td>
+                <td>第2回全学共通教育国際学生シンポジウムにおいて、iGEM Kyotoの論文が採録され、泉さんが英語で口頭発表を行いました。お疲れ様でした。 <br> テーマはJapanese Attitude toward Genetic Engineeringです。ご清聴有難うございました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>20 Nov. 2011</td>
+                <td>11/18~20に東京お台場にて開催されたサイエンスアゴラ2011にて、20,21日、木田君、延山君、小松君がポスター発表を行いました。 <br> 去年と同様、会場では幅広い層の方々と交流することができ、特にKyotoチームの今年のテーマ「食虫大腸菌」には多くの方に興味をもっていただけました。技術面のアドバイスを下さることもあり、有意義な意見交換を行えました。 <br> 見に来てくださった皆様、有難うございました！ </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>25 Oct. 2011</td>
+                <td>2011年度の報告会を行いました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>15 Oct. 2011<br>～16 Oct. 2011</td>
+                <td>香港でのアジア地区予選に参加しました。 <br> 銀メダルの評価は辛うじて得られましたが、残念ながら本選への切符は手にすることはできませんでした。
+                    <br> サポートして下さったスポンサー、アドバイザの皆様、本当に有難うございました。
+                    <br> 来年は必ずMITに帰ります。Kyoto2012は年内から始動の予定です。 <br> 今年から始まったアジア予選、通過は全46チーム中18チーム、そのうち日本チームは阪大、東工大、東京農工大、の3チーム（今年度は10チーム参加）でした。本選がんばって下さい！ </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>12 Oct. 2011</td>
+                <td>アジア予選直前プレゼン発表会を行いました。 <br> アドバイザーの先生の皆様、お忙しいところ有難うございました。 <br> 本番でベストなものが出せるよう、まだまだ粘ります。
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>29 Aug. 2011</td>
+                <td>第３回iGEM学生懇親会を、京都大学にて行いました。<br> 首都大、東大、阪大、京大、各チームのプロジェクトの発表会、食事会も大いに盛り上がりました。
+                    <br> お忙しいところ参加いただきありがとうございました！大会での再会を心より楽しみにしております。
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>3 Aug. 2011</td>
+                <td>Human practiceの一環として、東大寺学園にてiGEMの紹介、アンケート実施をさせていただきました。 <br> ご清聴有難うございました。きっかけに少しでも興味持っていただけたら嬉しいです^^ </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>19 Jul. 2011</td>
+                <td>本日から実験室を使えるようになりました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>1 Jul. 2011</td>
+                <td>今年度のテーマが「食虫大腸菌」に決定しました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>27 May 2011</td>
+                <td>新メンバー対象に第一回目の勉強会を開きました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>22 Apr. 2011<br>・26 Apr. 2011</td>
+                <td>新歓説明会を行いました。お越しくださった皆様、ありがとうございました。 <br> また分からないことなどなどがあれば、遠慮なく連絡ください^^ </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>31 Mar. 2011</td>
+                <td>イニシャルトレーニングが終了し、片づけを済ませました。お疲れ様でした。 <br> これからいよいよテーマ決めに入ります。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>11 Mar. 2011</td>
+                <td>総長賞の授賞式が行われ、代表として2010年度リーダーの志甫谷君が出席しました。 <br> これを励みにさらなる進化を目指して2011、がんばりましょう！ <br>
+                    <img src="./img/Soutyousyou.JPG"></td>
+            </tr>
+        </table>
+
+        <table class='kyoto-events-table' id="kyoto-events-2010">
+            <tr>
+                <td class='kyoto-events-date'>10 Mar. 2011</td>
+                <td>第一回全学共通教育国際学生シンポジウムにて、チームの森君が口頭発表を行いました！ <br> タイトルは”Quantitative Evaluation on the Holin of the Lysis cassette”、2010年度のプロジェクトについての内容です。<br> お疲れ様でした！
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>3 Mar. 2011</td>
+                <td><b>iGEM 関東学生懇親会 </b><br> 東京大学にて開催された学生懇親会へ、Kyotoチームからも参加させていただきました。 <br> 今回、主催の早大はじめ、東大、埼玉大、首都大、東工大、農工大チームの皆さんと親睦を深める貴重な機会となり、楽しい時間を過ごしました。お世話になりました！ <br> (集合写真も有難うございました！) <br>
+                    <img src="./img/Kantoh_meetup.jpg"></td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>8 Feb. 2011</td>
+                <td>記念すべき第一回目の勉強会を開きました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>19 Jan. 2011</td>
+                <td>のびのびになってしまっていた打ち上げも兼て、iGEM Kyotoの新年会を開きました♪　新メンバーも加わり大いに盛り上がりました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>17 Jan. 2011</td>
+                <td>２回目の新歓説明会を行いました。寒い中有難うございました！</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>16 Dec. 2010</td>
+                <td>１回目の新歓説明会を行いました。いかがでしたでしょうか？来て下さった皆様、有難うございました！ </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>9 Dec. 2010</td>
+                <td>授業にお邪魔してのビラ配りについての確認を行いました。新歓説明会用スライドを練りました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>6 Dec. 2010</td>
+                <td>新歓説明会の教室を予定より変更しました。 参加賞の賞状を受け取りました♪ </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>2 Dec. 2010</td>
+                <td>NFの反省点をまとめました。 <br> いくつかの授業にお邪魔して、iGEMの紹介をさせていただけることになりました。来週からはじめます。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>29 Nov. 2010</td>
+                <td>「わくわく理学」の担当の方から取材に関する会談がありました。<br> 新歓の方向性とともに、各準備の進行状況の確認をしました。 <br> ビラ、報告書、web記事の原稿を皆で添削しました。 <br> 全学共通教育国際学生シンポジウムの準備を始めることになりました。
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>25 Nov. 2010</td>
+                <td>新歓説明会の予定はじめ、新歓準備の各担当を決め、計画を立てました。 <br> 今後可能と考えられる広報、資金繰りの方法を列挙し、一部動き始めることになりました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>23 Nov. 2010</td>
+                <td><b>11月祭研究室企画 </b><br> 京都大学１１月祭最終日の11月23日に行われた研究室企画に出展し、ｉＧＥＭの紹介や研究成果の発表を行いました。１００枚も用意していたビラは全て配布でき、追加の印刷を行うほど多くの方が来てくださりました。 <br> 高校生の人で興味をもたれた方はぜひまた参加して下さい。発表を見に来てくださった方、本当にありがとうございました。
+                    <br>
+                    <div class="kyoto-events-photo">
+                        <img src="./img/KyotoNFtm1.JPG">
+                        <img src="./img/KyotoNF10.jpg">
+                        <img src="./img/KyotoNFtm2.JPG">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>20 Nov. 2010<br>～21 Nov. 2010</td>
+                <td><b>サイエンスアゴラ</b> <br> 11月20、21日と東京のお台場の国際研究交流大学村で開かれたサイエンスアゴラにてiGEM TMUを中心にiGEM Tokyoと一緒に出展しました。小さいお子さんから学生、大人の方まで様々な方にiGEMのことやテーマの説明ができてとてもいい経験になりました。説明を聞いてくださった方々、ありがとうございました。 <br>
+                    <a href="http://www.jst.go.jp/csc/scienceagora/">サイエンスアゴラ</a><br>
+                    <div class="kyoto-events-photo">
+                        <img src="./img/KyotoScienceAgora1.jpg">
+                        <img src="./img/KyotoScienceAgora2.jpg">
+                        <img src="./img/KyotoScienceAgora3.jpg">
+                        <img src="./img/KyotoScienceAgora4.jpg">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>27 may 2010</td>
+                <td>テーマ: <br> 　テーマの発表を行いました。それぞれのテーマについて先生方に指摘していただきました。 <br> 　まだ、課題は多いが、1つのテーマに絞り、調べていくことになりました。 <br> イニシャルトレーニング:
+                    <br> 　7月まで実習のため実験室が使えないため、それまでの間、各自で研究室に頼んで実験を教えてもらおうということになりました。 <br> Human Practice: <br> 　アンケートを東大の五月祭（29,30日）に間に合わせることになりました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>20 May 2010</td>
+                <td>2つのテーマが残り、細部について詰めてきた内容を発表しました。次回のミーティングは、先生方をお呼びしてテーマを発表し、テーマ決定まで行くことにしました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>13 May 2010</td>
+                <td>4つのテーマのうち3つについて発表し、残りの1つも次の日の昼に発表しました。点数で各テーマを評価しました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>6 May 2010</td>
+                <td>今後、6月までの予定を確認しました。 <br> テーマについて、4つのチームに分かれて次回のミーティングで発表することになりました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>30 Apr. 2010</td>
+                <td>日本の他のiGEMチームに合同でHuman Practiceをやることを提案することになりました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>22 Apr. 2010</td>
+                <td>新入生対象の説明会を行いました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>15 Apr. 2010</td>
+                <td>1回目の新入生対象の説明会を行ったあと、ミーティングを行いました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>6 Apr. 2010</td>
+                <td>京都工芸繊維大学の方が来られました。今後の協力関係を約束しました。 <br> テーマはひとまず、バイオハザードproject（バイオハザードを防ぐための機構）に焦点を置くことになりました。 議論のメインは「特定の機能が働くべき環境要因が無くなれば、大腸菌が死ぬ。」というものです
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>30 Mar. 2010</td>
+                <td>新1回生が参加してくれました。 <br> 新入生対象の説明会は理学部2号館第一講義室で行うことになりました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>23 Mar. 2010</td>
+                <td>前回に引き続き、テーマについての議論と調べる範囲の調整を行いました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>16 Mar. 2010</td>
+                <td>チーム登録を行いました。新勧担当と、新入生対象の説明会の日程を決めました（4月15日、22日、5月6日）。 <br> テーマについて、土壌改良の観点から調べることにしました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>10 Mar. 2010</td>
+                <td>テーマ、広報関連の議論を行いました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>5 Mar. 2010</td>
+                <td>首都大の人を迎えてミーティングを行いました。お互いの活動状況などの情報交換を行いました。 <br> 勉強会のまとめを行い、決勝チームの優れた点や、なぜケンブリッジが優勝したのかという議論を行いました。そこから、iGEMで評価されるにはどうしたらいいのか議論しました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>4 Mar. 2010</td>
+                <td>京都大学生命科学研究科が主催する第8回国際学生セミナーに参加し、2009年度の活動をポスターで発表しました。</td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>1 Mar. 2010</td>
+                <td>テーマについてのミーティングを行いました。 <br> iGEMの活動を宣伝するため、ポスターやビラを作りました。
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>23 Feb. 2010</td>
+                <td>新メンバーが去年の優勝校のケンブリッジと準優勝のハイデルベルクについての詳細なプレゼンを行いました。<br> 会計と広報担当、iGEMのホームページのチェック係を決めました。 <br> 次回の3月5日のミーティングに首都大学東京の方がお見えになります。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>15 Feb. 2010</td>
+                <td>新メンバーによる昨年のImperial College London, Freiburg biowareについてのプレゼンを通じて学びました。 <br> インターネットによる情報検索の方法について学びました。 <br> ヒルの式を用いたシュミレーション、シュミレーションの主な意義について学びました。 </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>25 Jan. 2010</td>
+                <td>議事長と書記を決定しました。 <br> トランスフォーメーション、Biobrickの組み上げの流れについて学びました。
+                    <br> Valenciaの去年の研究結果を題材に実験をするためにはどういったことを調べる必要があるかを議論しました。
+                </td>
+            </tr>
+            <tr>
+                <td class='kyoto-events-date'>14 Jan. 2010</td>
+                <td>今後ミーティングは京都大学理学部6号館の部屋を借りて行うことが決まりました。 <br> 来週以降に、週1で勉強会を行うことになりました。内容は、前半2回でiGEMの基礎知識を学び、後半では新メンバーが過去のfinalists1チームについて調べて30分程度で発表を行います。 </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+<div id="kyoto-game-background">
+</div>
+<div id="kyoto-game-center">
+    <div id="kyoto-game-wrapper">
+        <div id="wrapper">
+            <img src="" class="image" id="image0">
+            <img src="" class="image" id="image1">
+            <img src="" class="image" id="image2">
+            <img src="./img/Kyoto-game-1.png" class="image" id="image3">
+            <div id="databox">
+                <img src="./img/Kyoto-game-time.png">
+                <div class="data" id="time">
+                    100
+                </div>
+                <img src="./img/Kyoto-game-score.png">
+                <div class="data" id="score">
+                    0
+                </div>
+                <img src="./img/Kyoto-game-damage.png">
+                <div class="data" id="damage">
+                    0
+                </div>
+            </div>
+            <img src="./img/Kyoto-game-1.png" class="menu" id="menu1">
+            <img src="./img/Kyoto-game-2.png" class="menu" id="menu2">
+            <img src="./img/Kyoto-game-3.png" class="menu" id="menu3">
+            <img src="./img/Kyoto-game-4.png" class="menu" id="menu4">
+            <div class="area" id="gamestart">
+                <div>
+                    GAME
+                </div>
+                <p class="play">Push enter to start</p>
+            </div>
+            <div class="area" id="gameover">
+                <div id="showscore">
+                    SCORE : 100
+                </div>
+                <div>
+                    GAME OVER
+                </div>
+                <p class="play">Push enter to play again</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</html>
+
+
+<div id="footer">
+</div>
+</body>
+
+</html>

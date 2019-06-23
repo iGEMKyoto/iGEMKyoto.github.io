@@ -14,27 +14,11 @@
     </script>
     <script type="text/javascript">
         var p=2019
-        var cnt=10
         function team(year)
         {
-            while(cnt > 0){
-                var a='kyoto-team-'+p
+            var a='kyoto-team-'+p
             var dpoff=document.getElementById(a);
             dpoff.style.display="none";
-            cnt--;
-            p++;}
-            cnt=10;
-            while(cnt > 0){
-                cnt--;
-            p--;}
-            cnt=10;
-            while(cnt > 0){
-                var a='kyoto-team-'+p
-            var dpoff=document.getElementById(a);
-            dpoff.style.display="none";
-            cnt--;
-            p--;}
-            cnt=10;
             var b='kyoto-team-'+year
             var dpon=document.getElementById(b);
             dpon.style.display="block";

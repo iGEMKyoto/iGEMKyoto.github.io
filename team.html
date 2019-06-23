@@ -13,17 +13,19 @@
         });
     </script>
     <script type="text/javascript">
-        var p=2019
         function team(year)
         {
+        var p=2019
+            while(p > 2010){
             var a='kyoto-team-'+p
             var dpoff=document.getElementById(a);
+            p--;
+            }
             dpoff.style.display="none";
             var b='kyoto-team-'+year
             var dpon=document.getElementById(b);
             dpon.style.display="block";
-            p=year;
-        }
+            }
     </script>
     <style type="text/css">
         #kyoto-header-line{

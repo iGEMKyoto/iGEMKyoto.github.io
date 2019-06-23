@@ -13,16 +13,17 @@
         });
     </script>
     <script type="text/javascript">
-        var p=2019
+        var p=2018
         function team(year)
         {
             var a='kyoto-team-'+p
             var dpoff=document.getElementById(a);
-            dpon.style.display="none";
+            dpoff.style.display="none";
             var b='kyoto-team-'+year
             var dpon=document.getElementById(b);
             dpon.style.display="block";
-            }
+            p=year;
+        }
     </script>
     <style type="text/css">
         #kyoto-header-line{
@@ -32,7 +33,7 @@
 </head>
 
 <body>
-    
+
 <div id="header">
 </div>
 
@@ -49,7 +50,7 @@
 
     <table id="kyoto-yearselect">
         <tr>
-            <td><a href="#" onclick="team('2019');">2019</a></td>
+            
             <td><a href="#" onclick="team('2018');">2018</a></td>
             <td><a href="#" onclick="team('2017');">2017</a></td>
             <td><a href="#" onClick="team('2016');">2016</a></td>
@@ -60,21 +61,6 @@
             <td><a href="#" onClick="team('2011');">2011</a></td>
         </tr>
 <br>    </table>
-    <div id="kyoto-team-2019">
-        <div class="kyoto-history-year">2019</div>
-        <table class="kyoto-team-table">
-            <tr>
-                <td class="kyoto-team-table-photo">
-                    <img src="./img/team-2019-tamukai.jpg"3r                </td>
-                <td class="kyoto-team-profile">
-                    <h3>TAMUKAI, Kento</h3>
-                    <p>
-                        2nd year student belongs to Faculty of Pharmaceutical Sciences at Kyoto University<br><br>チャリに鍵かけたっけな
-                    </p>
-                </td>
-            </tr>
-        </table>
-</div>
     <div id="kyoto-team-2018">
         <div class="kyoto-history-year">2018</div>
         <table class="kyoto-team-table">

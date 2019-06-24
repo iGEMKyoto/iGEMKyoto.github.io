@@ -14,17 +14,14 @@
         });
     </script>
     <script type="text/javascript">
-        var p1=2018<!--更新するときはここを変えて-->
-        var p2=p1
-        var p3
         function events(year)
         {
-            p3=p2;
-            while(p3>2009){
-            var a='kyoto-events-'+p3
+            p=2018;<!--更新するときはここを変えて-->
+            while(p>2009){
+            var a='kyoto-events-'+p
             var dpoff=document.getElementById(a);
             dpoff.style.display="none";
-            p3--;}
+            p--;}
             b='kyoto-events-'+year
             var dpon=document.getElementById(b);
             dpon.style.display="block";
@@ -47,10 +44,10 @@
 
 <div id="kyoto-background-color">
 </div>
-
-    while(p1>2010){
-            p1--;
-            var a='kyoto-events-'+p1
+    var q=2018<!--更新するときはここを変えて-->
+    while(q>2010){
+            q--;
+            var a='kyoto-events-'+q
             var dpoff=document.getElementById(a);
             dpoff.style.display="none";
             }

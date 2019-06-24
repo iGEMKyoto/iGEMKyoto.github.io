@@ -25,75 +25,7 @@
             p--;}
             var b='kyoto-events-'+year
             var dpon=document.getElementById(b);
-            dpon.style.display="block";
-            if(year=="2012")
-            {
-                if(pass[0]==1)
-                {
-                    pass[1]=1;
-                    pass[0]=0;
-                }
-                else
-                {
-                    pass[0]=1;
-                    for (i=1;i<5;i++){
-                        pass[i]=0;
-                    }
-                }
-            }
-            if(year=="2010")
-            {
-                if(pass[1]==1)
-                {
-                    pass[2]=1;
-                    pass[1]=0;
-                }
-                else
-                {
-                    pass[0]=1;
-                    for (i=1;i<5;i++){
-                        pass[i]=0;
-                    }
-                }
-            }
-            if(year=="2011")
-            {
-                if(pass[2]==1)
-                {
-                    pass[3]=1;
-                    pass[2]=0;
-                }
-                else if(pass[4]==1)
-                {
-                    var gameback=document.getElementById("kyoto-game-background");
-                    var gamecenter=document.getElementById("kyoto-game-center");
-                    gameback.style.display="block";
-                    gamecenter.style.display="block";
-                }
-                else
-                {
-                    pass[0]=1;
-                    for (i=1;i<5;i++){
-                        pass[i]=0;
-                    }
-                }
-            }
-            if(year=="2014")
-            {
-                if(pass[3]==1)
-                {
-                    pass[4]=1;
-                    pass[3]=0;
-                }
-                else
-                {
-                    pass[0]=1;
-                    for (i=1;i<5;i++){
-                        pass[i]=0;
-                    }
-                }
-            }
-    }
+            dpon.style.display="block"; 
     dx=155, dy=100;
     x=55, sec=101, pnt=0, dmg=-15, lag=-3;
     mode=0;

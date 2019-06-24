@@ -17,12 +17,6 @@
         var p1=2018<!--更新するときはここを変えて-->
         var p2=p1
         var p3
-        while(p1>2010){
-            p1--;
-            var a='kyoto-events-'+p1
-            var dpoff=document.getElementById(a);
-            dpoff.style.display="none";
-            }
         function events(year)
         {
             p3=p2;
@@ -54,6 +48,13 @@
 <div id="kyoto-background-color">
 </div>
 
+    while(p1>2010){
+            p1--;
+            var a='kyoto-events-'+p1
+            var dpoff=document.getElementById(a);
+            dpoff.style.display="none";
+            }
+    
 <div id="kyoto-wrapper">
     <div class="kyoto-chapter">
         <img src="./img/Kyoto-events-text.png">

@@ -14,16 +14,24 @@
         });
     </script>
     <script type="text/javascript">
-        var p    
-        function events(year)
-        {
-            p=2018;
-            while(p>2009){
-            var a='kyoto-events-'+p
+        var p1=2018<!--更新するときはここを変えて-->
+        var p2=p3
+        var p3
+        while(p1>2010){
+            p1--;
+            var a='kyoto-events-'+p1
             var dpoff=document.getElementById(a);
             dpoff.style.display="none";
-            p--;}
-            var b='kyoto-events-'+year
+            }
+        function events(year)
+        {
+            p3=p2;
+            while(p3>2009){
+            var a='kyoto-events-'+p3
+            var dpoff=document.getElementById(a);
+            dpoff.style.display="none";
+            p3--;}
+            b='kyoto-events-'+year
             var dpon=document.getElementById(b);
             dpon.style.display="block";
         }

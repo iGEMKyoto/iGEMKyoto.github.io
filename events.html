@@ -13,17 +13,19 @@
         });
     </script>
     <script type="text/javascript">
-        p=2018;
+        var p
         pass=new Array(1,0,0,0,0);
         function events(year)
         {
-            var a='kyoto-events-'+p
+            p=2018;
+            while(p>2009){
+            var a='kyoto-team-'+p
             var dpoff=document.getElementById(a);
             dpoff.style.display="none";
-            var b='kyoto-events-'+year
+            p--;}
+            var b='kyoto-team-'+year
             var dpon=document.getElementById(b);
             dpon.style.display="block";
-            p=year;
             if(year=="2012")
             {
                 if(pass[0]==1)

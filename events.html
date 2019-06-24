@@ -45,6 +45,19 @@
 <div id="kyoto-background-color">
 </div>
     
+<script>
+            var q=2018<!--更新するときはここを変えて-->
+            var c='kyoto-events-'+q
+            var dpon=document.getElementById(c);
+            dpon.style.display="block";
+            while(p>2010){
+            q--;
+            var d='kyoto-events-'+q
+            var dpoff=document.getElementById(d);
+            dpoff.style.display="none";
+            q--;}
+    </script>
+    
 <div id="kyoto-wrapper">
     <div class="kyoto-chapter">
         <img src="./img/Kyoto-events-text.png">

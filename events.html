@@ -16,7 +16,7 @@
     <script type="text/javascript">
         function events(year)
         {
-            p=2018;<!--更新するときはここを変えて-->
+            p=2019;<!--更新するときはここを変えて-->
             while(p>2009){
             var a='kyoto-events-'+p
             var dpoff=document.getElementById(a);
@@ -37,7 +37,7 @@
 <body>
     
 <script type="text/javascript">
-            var q=2018<!--更新するときはここを変えて-->
+            var q=2019<!--更新するときはここを変えて-->
             var c='kyoto-events-'+q
             var dpon=document.getElementById(c);
             dpon.style.display="block";
@@ -65,6 +65,7 @@
     
     <table id="kyoto-yearselect">
         <tr>
+            <td><a href="#" onClick="events('2018');">2019</a></td>
             <td><a href="#" onClick="events('2018');">2018</a></td>
             <td><a href="#" onClick="events('2017');">2017</a></td>
             <td><a href="#" onClick="events('2016');">2016</a></td>
@@ -77,6 +78,14 @@
         </tr>
 <br>        </table>
     <div id="kyoto-events-content">
+        <table class='kyoto-events-table' id="kyoto-events-2019">
+            <tr>
+                <td class='kyoto-events-date'>19 June, 2019</td>
+                <td>iGEM Kyotoニュースレター5月号を発行しました。以下のurlからご覧いただけます。<a href="./img/newsletter2019_0619.pdf">移動</a>
+                    
+                </td>
+            </tr>
+        </table>
         <table class='kyoto-events-table' id="kyoto-events-2018">
             <tr>
                 <td class='kyoto-events-date'></td>

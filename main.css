@@ -263,7 +263,6 @@ a, a:hover{
     width:960px;
     margin-left:auto;
     margin-right:auto;
-    margin-bottom:50px;
 }
 #kyoto-top-formula-wrapper{
     padding:330px 0 0 0;
@@ -272,7 +271,8 @@ a, a:hover{
     text-align:center;
 }
 #kyoto-top-sentence-wrapper{
-    padding:41px 0 130px 0;
+    padding:41px 0 0 0;
+    margin-bottom: 130px;
 }
 #kyoto-top-sentence{
     text-align:center;

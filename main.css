@@ -180,7 +180,8 @@ a, a:hover{
 }
 /*******FOOTER*******/
 #kyoto-footer-line{
-    position:relative;
+    position:absolute;
+    bottom: 0;
     background-color:#1e1e20;
     height:190px;
 }

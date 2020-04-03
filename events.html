@@ -17,7 +17,7 @@
     <script type="text/javascript">
         function events(year)
         {
-            p=2019;<!--更新するときはここを変えて-->
+            p=2020;<!--更新するときはここを変えて-->
             while(p>2009){
             var a='kyoto-events-'+p
             var dpoff=document.getElementById(a);
@@ -38,7 +38,7 @@
 <body>
     
 <script type="text/javascript">
-            var q=2019<!--更新するときはここを変えて-->
+            var q=2020<!--更新するときはここを変えて-->
             var c='kyoto-events-'+q
             var dpon=document.getElementById(c);
             dpon.style.display="block";
@@ -66,6 +66,7 @@
     
     <table id="kyoto-yearselect">
         <tr>
+            <td><a href="#" onClick="events('2020');">2020</a></td>
             <td><a href="#" onClick="events('2019');">2019</a></td>
             <td><a href="#" onClick="events('2018');">2018</a></td>
             <td><a href="#" onClick="events('2017');">2017</a></td>
@@ -79,6 +80,8 @@
         </tr>
 <br>        </table>
     <div id="kyoto-events-content">
+        <table class='kyoto-events-table' id="kyoto-events-2020">
+        </table>
         <table class='kyoto-events-table' id="kyoto-events-2019">
             <tr>
                 <td class='kyoto-events-date'>17 November. 2019</td>

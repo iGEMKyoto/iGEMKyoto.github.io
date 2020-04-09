@@ -578,3 +578,12 @@ a, a:hover{
     margin-bottom:55px;
     background:rgba(250,250,250,0.3);
 }
+
+/*******WELCOME*******/
+#kyoto-welcome-background{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background-image:url(./img/Kyoto-welcome-background.jpg);
+    background-size:cover;
+}

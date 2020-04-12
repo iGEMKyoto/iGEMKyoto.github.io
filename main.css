@@ -127,6 +127,7 @@ a, a:hover{
     width:960px;
     left:50%;
     margin-left:-480px;
+    z-index:1;
     background-color:#1e1e20;
     opacity: 0.9;
 }
@@ -586,7 +587,7 @@ a, a:hover{
 #kyoto-welcome-background{
     position:fixed;
     width:100%;
-    height:auto;
+    height:100%;
     background-image:url(./img/kyoto-welcome-background.jpg);
     background-size:cover;
 }

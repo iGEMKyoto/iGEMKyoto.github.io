@@ -385,7 +385,7 @@ a, a:hover{
     position:absolute;
     background-color:#000;
     opacity:0.7;
-    display:none;
+    display:inline;
     width:100%;
     height:100%;
     top:0;
@@ -397,7 +397,7 @@ a, a:hover{
     height:0;
     left:50%;
     top:0;
-    display:none;
+    display:inline;
     z-index:3;
 }
 #kyoto-game-wrapper{

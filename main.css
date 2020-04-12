@@ -127,6 +127,7 @@ a, a:hover{
     width:960px;
     left:50%;
     margin-left:-480px;
+    background-color:#1e1e20;
     opacity: 0.9;
 }
 #kyoto-header-home-wrapper, #kyoto-header-contact-wrapper{

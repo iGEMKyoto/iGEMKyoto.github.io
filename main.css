@@ -117,19 +117,19 @@ a, a:hover{
 #kyoto-header-line{
     position:fixed;
     width:100%;
-    z-index:1;
+    z-index:5;
     border-bottom:1px solid #ffffff;
     background-color:#1e1e20;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 #kyoto-header-wrapper{
     position:relative;
     width:960px;
     left:50%;
     margin-left:-480px;
-    z-index:1;
+    z-index:5;
     background-color:#1e1e20;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 #kyoto-header-home-wrapper, #kyoto-header-contact-wrapper{
     position:relative;

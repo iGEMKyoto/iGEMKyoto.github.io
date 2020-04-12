@@ -117,10 +117,10 @@ a, a:hover{
 #kyoto-header-line{
     position:fixed;
     width:100%;
-    z-index:5;
+    z-index:1;
     border-bottom:1px solid #ffffff;
     background-color:#1e1e20;
-    opacity: 0.85;
+    opacity: 0.9;
 }
 #kyoto-header-wrapper{
     position:relative;

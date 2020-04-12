@@ -120,6 +120,7 @@ a, a:hover{
     z-index:1;
     border-bottom:1px solid #ffffff;
     background-color:#1e1e20;
+    opacity: 0.9;
 }
 #kyoto-header-wrapper{
     position:relative;

@@ -461,10 +461,10 @@ a, a:hover{
 }
 
 /*******WELCOME*******/
-#kyoto-welcome-background{
+#kyoto-top-background{
     position:fixed;
     width:100%;
     height:100%;
-    background-image:url(./img/kyoto-welcome-background.jpg);
+    background-image:url(./img/kyoto--background.jpg);
     background-size:cover;
 }

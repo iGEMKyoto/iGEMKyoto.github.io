@@ -6,17 +6,10 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="main.css">
     <title>iGEM Kyoto</title>
-    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
-    <script>
-        $(function () {
-            $("#header").load("./header.html");
-            $("#footer").load("./footer.html");
-        });
-    </script>
     <script type="text/javascript">
-        var p
+        var p = 2022; // 毎年一ずつ増やす（どうにかしろこれ）
         function team(year) {
-            p = 2021;
+            p=2022
             while (p > 2010) {
                 var a = 'kyoto-team-' + p
                 var dpoff = document.getElementById(a);
@@ -27,6 +20,14 @@
             var dpon = document.getElementById(b);
             dpon.style.display = "block";
         }
+    </script>
+    <script type="text/javascript" src="./js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(function () {
+            $("#header").load("./header.html");
+            $("#footer").load("./footer.html");
+            team('2022');
+        });
     </script>
     <style type="text/css">
         #kyoto-header-line {
@@ -53,6 +54,7 @@
 
         <table id="kyoto-yearselect">
             <tr>
+                <td><a href="#" onclick="team('2022');">2022</a></td>
                 <td><a href="#" onclick="team('2021');">2021</a></td>
                 <td><a href="#" onclick="team('2020');">2020</a></td>
                 <td><a href="#" onclick="team('2019');">2019</a></td>
@@ -67,6 +69,267 @@
             </tr>
             <br>
         </table>
+
+        <div id="kyoto-team-2022">
+            <div class="kyoto-history-year">2022</div>
+
+            <!-- <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="./img/team-2021-Fukushima.jpg">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>Japanese Name <br>FamilyName, FirstName - Post</h3>
+                        <p>
+                            ** year student of the Faculty of **, Kyoto University
+                            <br><br>
+                            Hitokoto
+                        </p>
+                    </td>
+                </tr>
+            </table> -->
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>早松 龍正 <br>Hayamatsu, Ryusei - Team Leader</h3>
+                        <p>
+                            Second year student of the Department of Applied Life Science, the Faculty of Agriculture, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>林 泰瑶 <br>Hayashi, Taiyo - Project Leader</h3>
+                        <p>
+                            Third year student of the Faculty of Science, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>川上 咲季 <br>Kawakami, Saki - Design Leader</h3>
+                        <p>
+                            Third year student of the Department of Bioresource Science, the Faculty of Agriculture, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>福嶋 陸斗 <br>Fukushima, Rikuto - Dry Lab</h3>
+                        <p>
+                            Third year student of the Faculty of Science, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>前田 佳穂 <br>Maeta, Kaho - Finance supervisor</h3>
+                        <p>
+                            Second year student of the Department of Applied Life Science, the Faculty of Agriculture, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>三笘 隼人 <br>Mitoma, Hayato - --</h3>
+                        <p>
+                            First year student of the Faculty of Science, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>三原 一星 <br>Mihara, Issei - --</h3>
+                        <p>
+                            First year student of the Faculty of Science, Kyoto University
+                            <br><br>
+                            ---
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>石橋 凌平 <br>Ishibashi, Ryohei - --</h3>
+                        <p>
+                            First year student of the Faculty of Science, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>阿部 惇之介 <br>Abe, Junnosuke - Human Practice Leader</h3>
+                        <p>
+                            First year student of the Department of Civil, Environmental and Resources Engineering, the Faculty of Engineering, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>黒田 和揮 <br>Kuroda, Kazuki - --</h3>
+                        <p>
+                            First year student of the Department of Pharmacy, the Faculty of Pharmacy, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>関川 隆 <br>Sekikawa, Takashi - --</h3>
+                        <p>
+                            First year student of the Department of Medicine, the Faculty of Medicine, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>福岡 大空 <br>Fukuoka, Taku - Education</h3>
+                        <p>
+                            First year student of the Department of Forest and Biomaterials Science, the Faculty of Agriculture, Kyoto University
+                            <br><br>
+                            興味あることー牡丹
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>後藤 優理子 <br>Goto, Yuriko - Collaboration</h3>
+                        <p>
+                            First year student of the Department of Applied Life Science, the Faculty of Agriculture, Kyoto University
+                            <br><br>
+                            ----
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+
+            <table class="kyoto-team-table">
+                <tr>
+                    <td class="kyoto-team-table-photo">
+                        <img src="" alt="image n/a">
+                    </td>
+                    <td class="kyoto-team-profile">
+                        <h3>土田 美咲 <br>Tsuchida, Misaki - --</h3>
+                        <p>
+                            First year student of the Department of Applied Life Science, the Faculty of Agriculture, Kyoto University
+                            <br><br>
+                            ---
+                        </p>
+                    </td>
+                </tr>
+            </table>
+
+            
+        </div>
+        <!-- 2022 owari -->
         <div id="kyoto-team-2021">
             <div class="kyoto-history-year">2021</div>
             <table class="kyoto-team-table">
@@ -320,7 +583,7 @@
                         <img src="./img/team-2021-Maeda.jpg">
                     </td>
                     <td class="kyoto-team-profile">
-                        <h3>前田 佳穂<br>MAEDA, Kaho - Human Practices Leader</h3>
+                        <h3>前田 佳穂<br>MAETA, Kaho - Human Practices Leader</h3>
                         <p>
                             First year student of the Department of Applied Life Sciences, <br>Faculty of Agriculture,
                             Kyoto University

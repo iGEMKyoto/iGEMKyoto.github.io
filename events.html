@@ -17,7 +17,7 @@
     <script type="text/javascript">
         function events(year)
         {
-            p=2021; /*更新するときはここを変えて*/
+            p=2022; /*更新するときはここを変えて*/
             while(p>2009){
             var a='kyoto-events-'+p
             var dpoff=document.getElementById(a);
@@ -39,17 +39,17 @@
     
 <script type="text/javascript">
     $(function() {
-            var q=2021 /*更新するときはここを変えて*/
+            var q=2022 /*更新するときはここを変えて*/
             var c='kyoto-events-'+q
             var dpon=document.getElementById(c);
             dpon.style.display="block";
             q--;
             while(q>2009){
-            var d='kyoto-events-'+q
-            var dpoff=document.getElementById(d);
-            dpoff.style.display="none";
-            q--;
-        }
+                var d='kyoto-events-'+q
+                var dpoff=document.getElementById(d);
+                dpoff.style.display="none";
+                q--;
+            }
     });
     </script>
     
@@ -69,6 +69,7 @@
     
     <table id="kyoto-yearselect">
         <tr>
+            <td><a href="#" onclick="events('2022');">2022</a></td>
             <td><a href="#" onclick="events('2021');">2021</a></td>
             <td><a href="#" onclick="events('2020');">2020</a></td>
             <td><a href="#" onclick="events('2019');">2019</a></td>
@@ -84,6 +85,19 @@
         </tr>
 <br>        </table>
     <div id="kyoto-events-content">
+
+        <table class="kyoto-events-table" id="kyoto-events-2022">
+            <tr>
+                <td class="kyoto-events-date">28 September, 2022</td>
+                <td>
+                    第64回 京都大学 11月祭 の研究室企画において iGEM Kyoto が参加します！<br>
+                    iGEM やプロジェクトについてまとめた展示企画やクイズ企画を行います。<br>
+                    ご来場の方やクイズに正解した方には特別なグッズを配布させていただく予定です。是非ご来場ください！<br><br>
+                    詳しくは<a href="https://nf.la/pages/nf.html">NF公式サイト</a>をご覧ください。
+                </td>
+            </tr>
+        </table>
+
         <table class="kyoto-events-table" id="kyoto-events-2021">
             <tr>
                 <td class="kyoto-events-date">14 December. 2021</td>

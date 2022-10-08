@@ -2,7 +2,7 @@
 window.jQuery || 
 (
     function load_local_jquery() {
-        var script = document.createElement('script');
+        let script = document.createElement('script');
         script.src = './js/jquery-3.2.1.min.js';
         document.body.appendChild(script);
     }

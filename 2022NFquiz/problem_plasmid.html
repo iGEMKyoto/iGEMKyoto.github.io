@@ -7,85 +7,93 @@
         <!-- <link rel="stylesheet" type="text/css" href="../bootstraps/css/bootstrap.min.css"> -->
         <link rel="stylesheet" type="text/css" href="../main.css"> <!-- igemkyoto スタイルシート -->
         <link rel="stylesheet" type="text/css" href="./quizmain.css"> <!-- クイズサイトCSS -->
-        <script src="../bootstraps/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="../bootstraps/js/bootstrap.bundle.min.js"></script> -->
+        <script src="../js/main.js"></script>
     </head>
     <body>
         <div id="header"></div>
-        <div id="kyoto-top-background"></div>
+        <div id="kyoto-top-background"></div> <!-- TODO 後で変える -->
         <div id="kyoto-background-color"></div>
         <div id="kyoto-wrapper">
             <h1> 導入 <br></h1>
             <p class="problem-text">
-                合成生物学には作らせたい目的のタンパク質の設計図たる遺伝子を酵母や大腸菌などの生物に導入する手法がある。タンパク質を生産してくれた生物を凝集させて、堆積させることで目的のタンパク質のみを回収することができる。さて、目的のタンパク質の回収はできるとして、観察が難しいのにどうして目的のタンパク質が生産されたことを確認できるだろうか。
+                合成生物学の分野では、しばしば二つのタンパク質配列を融合させて新たなタンパク質配列を作り出すことがある。例えば、抗菌酵素の後ろにGFP（緑色蛍光タンパク質）を融合させて...... ふにゃふにゃ<br>
+                お前らには体験してもらうぞ
+                制限酵素：これこれ<br>
+                電気泳動とは、ゲルに負の電荷を帯びたDNAに電流を流すとDNAが正極へと移動する性質及び分子量の大きいDNA鎖ほど移動速度が遅いことを利用して、塩基対数の異なるDNA鎖を分離する方法のことをいう。<br>
+                また、DNA鎖の構成要素である塩基には４種類ある。このうちアデニンとチミン、グアニンとシトシンは互いに相補的に結合する性質がある。 
+            </p>
             <h1> 問題文 <br></h1>
             <p class="problem-text">
-                <br>この問題を解決する方法の一つを紹介する。目的のタンパク質をコードする遺伝子とともに蛍光を発するタンパク質をコードする遺伝子を導入する。目的の遺伝子が発現（遺伝子が指定するタンパク質が合成されること）すると蛍光も観察される。したがって蛍光の観察によって目的のタンパク質が生産されたことがわかる。こうして目的のタンパク質の生産を確認し回収した後の生物をそのまま外部に出してはいけない。人為的に改変した遺伝子が外部に流出してしまうと自然の遺伝的多様性を失わせてしまう危険があるからだ。そこで実験後の生物を殺す必要がある。この時に活躍するのがキルスイッチだ。キルスイッチが働くとその生物は死にいたる。こうして一連の実験が終了する。 
-
-                <br>A君がある遺伝子組み替え大腸菌に対して以下の操作を行なった。 
+                図 1. のように、林くんは プラスミド（ 環状DNA ）A に X および Y の二つの制限酵素（特定の配列を認識してDNA鎖を切断する）を反応させ、白矢印で示した遺伝子領域を切り出したのち、同様に X と Y で処理したプラスミド B を連結させ、プラスミド C を構築する実験計画を立てた。 <br>
+                この計画に基づき、次の実験を行った。
             </p>
-            </p>
+            <figure class="problem-fig"><img src="img/peptide_2.png"></figure> <!-- 図1. -->
 
             <h2 class="bold-underline">実験</h2>
-
-            <p class="problem-text">
-                酵母に青色の光を照射したら酵母が<span class="bold-underline">凝集（集まって）、堆積した。</span> 
-            </p>
             <ul class="problem-text">
-                <li>酵母に赤色光を照射したら蛍光１が観察された。 </li>
-                <li>酵母に対して赤色光と青色光を同時照射すると蛍光２が観察された。 </li>
-                <li>※蛍光１は目的のタンパク質が発現したときに観察され、蛍光２はキルスイッチが作動した時に観察される。</li>
+                <li>プラスミド A 及び B それぞれが入った溶液に対して制限酵素を加えて反応させ、さらにそれぞれのサンプルを混合し、DNA 連結酵素で連結させた。</li>
+                <li>次にそのプラスミドを大腸菌に導入し、生育した単一コロニーからプラスミドを精製した（<span class="bold-underline">これをプラスミド D とする</span>）。</li>
+                <li>さらに、プラスミド D の入った溶液に対して 制限酵素 X と Y を加えて反応させた。</li>
+                <li>最後に、次のような電気泳動実験を行った。プラスミド A、プラスミド B それぞれの入った溶液に制限酵素 X と Z を加えて電気泳動した結果を図 2. に示す。</li>
             </ul>
+            <p class="problem-text">なお制限酵素Xは配列イを認識し、制限酵素Yは配列ロを認識し、制限酵素Zは配列ハを認識する。制限酵素YとZの認識配列は異なるが、それぞれの制限酵素による説断面 は互いに結合できる。 </p>
+            <figure class="problem-fig"><img src="img/peptide_2.png"></figure> <!-- 図2 -->
+
+            <h1>問い</h1>
+            <h2 class="bold-underline">第一問</h2>
             <p class="problem-text">
-                <span class="bold-underline">ここで言う酵母はいずれも同一の遺伝子操作を行なったものであり、同じ遺伝子を持っていると仮定する。 </span>
+
+                林くんはプラスミドB を消化する際に手順の制限酵素を入れ忘れたかもしれないということに気づいた。実験の結果を踏まえると実際には林くんはどの制限酵素を使用したとあなたは考えるか？彼に教えてあげよう。<br><br>
+            </p>
+                <select id="plasmid-first">
+                    <option value="invalid"> - 選択してください - </option>
+                    <option value="nothing">何も入れなかった</option>
+                    <option value="X">Xのみ</option>
+                    <option value="Y">Yのみ</option>
+                    <option value="X-Y">XとYの両方とも</option>
+                </select>
+            
+            <h2 class="bold-underline">第二問</h2>
+            <p class="problem-text">
+                林くんがプラスミドDとして得たプラスミドは以下の図の内どれだと考えられるか？<br><br>
+                <figure class="problem-fig"><img src="img/peptide_2.png"></figure> <!-- 図3 -->
+            </p>
+                <select id="plasmid-second">
+                    <option value="invalid"> - 選択してください - </option>
+                    <option value="B">プラスミドB</option>
+                    <option value="C">プラスミドC</option>
+                    <option value="E">プラスミドE</option>
+                    <option value="F">プラスミドF</option>
+                </select>
+
+
+            <h2 class="bold-underline">第三問(ボーナス!)</h2>
+            <p class="problem-text">
+                認識配列が同じ制限酵素を用いて消化・ライゲーションを行うと、このように、逆向きに配列が入ったり、セルフライゲーションが起こるなどの問題が起きる。 <br>
+                さて、実はインサートには制限酵素X,Y の他にもいくつか利用可能 な制限酵素サイトがある（図を参照）。林くんの代わりにあなたが制限酵素を適切に選び、成功しそうな実験計画を立ててくれ！ <br><br>
+
+                <form action="#" method="post">
+                    <p>解答欄：<br>
+                        <textarea name="comment" cols="30" rows="5"></textarea></p>
+                </form>
             </p>
 
-            <br><h2 class="bold-underline">問い</h2>
-            <p class="problem-text">
-                以上の実験結果をもとにA君は効率よく目的の物質を得られる、光の当て方を考えた。A君の考えた、青色光、赤色光、青色光と赤色光同時照射の当て方の順番を答えよ。 
-                解答にあたり文章（い）、実験、※の内容を参考にしなさい。
-            </p>
-
-            <section>
-                <p>解答欄：一つ目、二つ目、最後に当てる光をそれぞれ選択して確定せよ！</p>
-                <select id="peptide-first">
-                    <option value="red">赤色光</option>
-                    <option value="blue">青色光</option>
-                    <option value="red-blue">赤色光+青色光</option>
-                </select>
-                →
-                <select id="peptide-second">
-                    <option value="red">赤色光</option>
-                    <option value="blue">青色光</option>
-                    <option value="red-blue">赤色光+青色光</option>
-                </select>
-                →
-                <select id="peptide-third">
-                    <option value="red">赤色光</option>
-                    <option value="blue">青色光</option>
-                    <option value="red-blue">赤色光+青色光</option>
-                </select>
-
-                <button id="peptide-answer-decision">確定！</button>
-            </section>
-
-            <figure class="problem-fig"><img src="img/peptide_1.png"></figure>
-            <figure class="problem-fig"><img src="img/peptide_2.png"></figure>
-            <figure class="problem-fig"><img src="img/peptide_3.png"></figure>
+            <div style="text-align:center"><button id="plasmid-answer-decision">確定</button></div>
         </div>
     <div id="footer"></div>
-    
+
     <script>
-        const answer_button = document.getElementById('peptide-answer-decision');
+        const answer_button = document.getElementById('plasmid-answer-decision');
         answer_button.addEventListener('click', function(){
-            let choice_first = document.getElementById('peptide-first');
-            let choice_second = document.getElementById('peptide-second');
-            let choice_third = document.getElementById('peptide-third');
-            // console.log(choice_first.value, choice_second.value, choice_third.value);
-            let is_correct = choice_first.value=='red' && choice_second.value=='blue' && choice_third.value=='red-blue';
+            let choice_first = document.getElementById('plasmid-first');
+            let choice_second = document.getElementById('plasmid-second');
+            let is_correct = choice_first.value=='X' && choice_second.value=='F';
             let result = is_correct ? 'correct' : 'incorrect';
 
-            location.href = "./feedback_peptid_correct.html"
+            location.href = "./feedback_plasmid_" + result + ".html";
         });
     </script>
+
     </body>
 </html>

@@ -7,7 +7,8 @@
         <!-- <link rel="stylesheet" type="text/css" href="../bootstraps/css/bootstrap.min.css"> -->
         <link rel="stylesheet" type="text/css" href="../main.css"> <!-- igemkyoto スタイルシート -->
         <link rel="stylesheet" type="text/css" href="./quizmain.css"> <!-- クイズサイトCSS -->
-        <script src="../bootstraps/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="../bootstraps/js/bootstrap.bundle.min.js"></script> -->
+        <script src="../js/main.js"></script>
     </head>
 
     <body>
@@ -15,11 +16,11 @@
         <div id="kyoto-top-background"></div>
         <div id="kyoto-background-color"></div>
         <div id="kyoto-wrapper">
-            <h1 class="quiz-title">〜NF特別企画〜 生物学の問題にチャレンジ！</h1>
+            <h1 class="quiz-title">〜iGEM Kyoto NF特別企画〜 <br> 生物学の問題にチャレンジ！</h1>
             <div class="prob-selecter-wrapper">
-                <button class="prob-selecter">初級</button>
-                <button class="prob-selecter">中級</button>
-                <button class="prob-selecter">上級</button>
+                <button class="prob-selecter" onclick="location.href='./problem_peptide.html'">初級</button>
+                <button class="prob-selecter" onclick="location.href='./problem_screening.html'">中級</button>
+                <button class="prob-selecter" onclick="location.href='./problem_plasmid.html'">上級</button>
             </div>
         </div>
 

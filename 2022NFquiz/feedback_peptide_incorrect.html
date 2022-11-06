@@ -7,14 +7,15 @@
         <!-- <link rel="stylesheet" type="text/css" href="../bootstraps/css/bootstrap.min.css"> -->
         <link rel="stylesheet" type="text/css" href="../main.css"> <!-- igemkyoto スタイルシート -->
         <link rel="stylesheet" type="text/css" href="./quizmain.css"> <!-- クイズサイトCSS -->
-        <script src="../bootstraps/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="../bootstraps/js/bootstrap.bundle.min.js"></script> -->
+        <script src="../js/main.js"></script>
     </head>
     <body>
         <div id="header"></div>
         <div id="kyoto-top-background"></div>
         <div id="kyoto-background-color"></div>
         <div id="kyoto-wrapper">
-            <h1 class="result"> 😭不正解😭</h1>
+            <h1 class="result" id="incorrect"> 💧不正解💧</h1>
             <button class="prob-selecter">解答・解説</button>
             <h1 class="bold-underline"> <br>答え </h1>
             赤色光→青色光→赤色光と青色光 
@@ -22,14 +23,12 @@
             
             導入と問題文から、<br>
             効率良く目的の物質を得るためには大腸菌に目的のタンパク質を合成させた後に凝集させ、KIllスイッチを作動させれば良いとわかる。また、※の内容と実験の内容から赤色光が目的のタンパク質の合成を、青色光が大腸菌の凝集を、赤色光と青色光の照射がKIllスイッチの作動を促進することがわかる。以上より解答が得られる。 
-            <h1 class="quiz-title"> 
-                アンケートに回答してプレゼントをもらってね。
-            </h1>
-            <button class="prob-selecter">
+            
+            <button class="prob-selecter" onclick="location.href='./index.html'">
                 他の問題にもチャレンジ
             </button>
             <button class="prob-selecter">
-                アンケート
+                アンケートに回答してプレゼントをもらおう🎁
             </button>
         </div>
         <div id="footer"></div>

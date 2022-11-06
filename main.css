@@ -7,7 +7,7 @@
 p{
     margin:0px;
     line-height:2em;
-    background-image:url(image);
+    /* background-image:url(image); */
 }
 table{
     font-size:16px;
@@ -218,6 +218,13 @@ a, a:hover{
     margin-right:auto;
     padding-top:100px;
 }
+/* レスポンシブ設定 */
+@media (max-width: 1200px) {
+    #kyoto-wrapper {
+        width: 80%;
+    }
+}
+
 .kyoto-chapter{
     margin-left:auto;
     margin-right:auto;

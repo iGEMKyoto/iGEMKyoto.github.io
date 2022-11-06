@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* 後でやる */
+html {
+    font-family: "游ゴシック体","YuGothic";
+}
+body {
+    color: aliceblue;
+    /* -webkit-text-size-adjust: 100%; */
+}
+.quiz-title {
+    text-align: center;
+    font-size: 2.5em;
+}
+.result {
+    font-size: 4em;
+    text-align: center;
+    color: gold;
+}
+.prob-selecter-wrapper {
+    display: block;
+    /* display: flex;
+    flex-basis: 30%;
+    padding: 0; */
+}
+button.prob-selecter {
+    display: block;
+    background-color: rgb(73, 124, 232);
+    border-radius: 10%;
+    border-width: 2px;
+    color: aliceblue;
+    margin: 1em auto; /* 上下　左右 */
+    padding :.2em;
+    /* width: 50%; */
+    font-size: 1.5em;
+    width: 300px;
+    height: 100px;
+}
+.problem-text {
+    font-size: 1.25em;
+    line-height: 1.75em;
+}
+.bold-underline {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.problem-fig img {
+    display: block;
+    max-width: 100%;
+}

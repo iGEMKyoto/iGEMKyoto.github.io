@@ -1,18 +1,36 @@
 // CDN の読み込みが失敗した場合ローカルのjqueryをloadする
-window.jQuery || 
-(
-    function load_local_jquery() {
-        let script = document.createElement('script');
-        script.src = './js/jquery-3.2.1.min.js';
-        document.body.appendChild(script);
-    }
-)();
+// window.jQuery || 
+// (
+//     function load_local_jquery() {
+//         let script = document.createElement('script');
+//         script.src = './js/jquery-3.2.1.min.js';
+//         document.body.appendChild(script);
+//     }
+// )();
 
 // load header/footer
-$(function() {
-    $("#header").load("./header.html");
-    $("#footer").load("./footer.html");
+// 動作未確認
+function load_target_id(target, source) {
+    var req = new XMLHttpRequest();
+    req.open("GET", source, true);
+    req.onreadystatechange = function() {
+        if ((req.readyState === 4) && (req.status === 200)) {
+            document.getElementById(target).innerHTML = req.responseText;
+        }
+    }
+    req.send(null);
+}
+// use as below
+document.addEventListener("DOMContentLoaded", function() {
+    load_target_id("header", "./header.html");
+    load_target_id("footer", "./footer.html");
 });
+
+// 旧バージョン
+// $(function() {
+//     $("#header").load("./header.html");
+//     $("#footer").load("./footer.html");
+// });
 
 // 年度をGet
 function get_fiscal_year() {

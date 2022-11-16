@@ -18,40 +18,45 @@
             <h1> 導入 <br></h1>
             <p class="problem-text">
                 1958年のノーベル医学生理学賞受賞者のレーダーバーグの思考を体験してみよう!以下の内容はレーダーバーグの1948年の論文の内容からの抜粋だよ。興味のある人は元の論文も読んでみよう！
-https://pubs.acs.org/doi/pdf/10.1021/ja01192a521
+                https://pubs.acs.org/doi/pdf/10.1021/ja01192a521
 
             </p>
             <h1> 問題文 <br></h1>
             <p class="problem-text">
                 ●薬剤などに耐性を持たせることは意外と簡単<br>
-ある物質に対して耐性のある細菌変異体を得るにはどうすればいいだろう❓例えばアンピシリンに耐性のある大腸菌を作りたいとしよう。（アンピシリンとは、細胞壁の合成酵素を阻害し細胞壁を薄くしてしまう物質で、アンピシリンの存在下で増殖しようとする細菌は通常死滅してしまう。）これは実は簡単で、紫外線などでランダムに変異を起こした大腸菌をアンピシリンを含む培地に移し、生存したコロニーを分離すればいい。そうすることで、低確率であったとしてもアンピシリン耐性株を得ることができる🎵
-耐性株からは耐性遺伝子や耐性に寄与しているタンパク質などを特定することができるため、有用な場合があるんだね。
-<br><br>
-</p>
+                ある物質に対して耐性のある細菌変異体を得るにはどうすればいいだろう❓例えばアンピシリンに耐性のある大腸菌を作りたいとしよう。（アンピシリンとは、細胞壁の合成酵素を阻害し細胞壁を薄くしてしまう物質で、アンピシリンの存在下で増殖しようとする細菌は通常死滅してしまう。）これは実は簡単で、紫外線などでランダムに変異を起こした大腸菌をアンピシリンを含む培地に移し、生存したコロニーを分離すればいい。そうすることで、低確率であったとしてもアンピシリン耐性株を得ることができる🎵
+                耐性株からは耐性遺伝子や耐性に寄与しているタンパク質などを特定することができるため、有用な場合があるんだね。
+            <br><br>
+            </p>
 
-<p class="problem-text">
-●じゃあ逆に、要求株は、、、❓<br>
-では、逆にあるアミノ酸Aを必要とする細菌変異体を得るにはどうすればいいだろう❓ランダムに変異を起こした株について、一つずつアミノ酸Aが入った培地と入っていない培地に植えて比較することで得ることもできるが、それだとかなりの時間がかかってしまう😖しかし、実は培地の条件を変えながら植えつぎをうまく行うことによって簡単に要求株を得ることができる。どのように条件を変えればよいか考えてみよう。ヒントはある特別な操作を使うこと！<br>
-⭐️ただしこれは1948年の話なのでまだDNAの二重螺旋構造も解明されていないような時代のお話。要求する仕組みや遺伝子はわかっていなかったんだよ。
-</p>
+            <p class="problem-text">
+            ●じゃあ逆に、要求株は、、、❓<br>
+            では、逆にあるアミノ酸Aを必要とする細菌変異体を得るにはどうすればいいだろう❓ランダムに変異を起こした株について、一つずつアミノ酸Aが入った培地と入っていない培地に植えて比較することで得ることもできるが、それだとかなりの時間がかかってしまう😖しかし、実は培地の条件を変えながら植えつぎをうまく行うことによって簡単に要求株を得ることができる。どのように条件を変えればよいか考えてみよう。ヒントはある特別な操作を使うこと！<br>
+            ⭐️ただしこれは1948年の話なのでまだDNAの二重螺旋構造も解明されていないような時代のお話。要求する仕組みや遺伝子はわかっていなかったんだよ。
+            </p>
  
-<p class="problem-text">
-一つ目の培地    
-</p>            
- <section class="answer-form" style="text-align:center">
-    <select id="screening-first">
-        <option value="red">アミノ酸Aを含む培地</option>
-        <option value="blue">アミノ酸Aを含まない培地</option>
-        <option value="red-blue">赤色光+青色光</option>
-    </select><br>
-    <select id="screening-second">
-        <option value="red">赤色光</option>
-        <option value="blue">青色光</option>
-        <option value="red-blue">赤色光+青色光</option>
-    </select><br>
-    <button id="peptide-answer-decision">確定</button>
-    </section> 
-    </div>
-    <div id="footer"></div>
+            <p class="problem-text">
+            一つ目の培地    
+            </p>            
+            <section class="answer-form" style="text-align:center">
+                <select id="screening-first">
+                    <option value="red">アミノ酸Aを含む</option>
+                    <option value="blue">アミノ酸Aを含まない</option>
+                </select><br>
+                <select id="screening-second">
+                    <option value="red">特別な操作を行う</option>
+                    <option value="blue">特別な操作を行わない</option>
+                </select><br>
+                <p class="problem-text">
+                    特別な操作の内容<br>
+                    <form action="#" method="post">
+                        <p>解答欄：<br>
+                            <textarea name="comment" cols="30" rows="5"></textarea></p>
+                    </form>
+                </p>
+                <button id="peptide-answer-decision">確定</button>
+            </section> 
+        </div>
+        <div id="footer"></div>
     </body>
 </html>

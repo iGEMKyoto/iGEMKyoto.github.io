@@ -105,3 +105,22 @@ select {
     border-width: 1px;
     margin: 2em;
 }
+
+/* detail summary アコーディオン */
+details {
+    border: 1px solid #ccc;
+}
+details:not(:last-child) {
+    margin-bottom: 20px;
+}
+details summary {
+    cursor: pointer;
+    padding: 20px;
+    background: rgb(73, 124, 232);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+details p, details h1 {
+    margin: 0;
+    padding: 20px;
+}

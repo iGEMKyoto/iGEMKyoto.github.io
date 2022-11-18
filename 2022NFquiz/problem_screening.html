@@ -39,39 +39,66 @@
                 <h1 class="problem-text">
                     一つ目の培地    
                 </h1>  
-                <select id="screening-first_1">
-                    <option value="red">アミノ酸Aを含む</option>
-                    <option value="blue">アミノ酸Aを含まない</option>
+                <select id="screening-first-1">
+                    <option value="Yes">アミノ酸Aを含む</option>
+                    <option value="No">アミノ酸Aを含まない</option>
                 </select><br>
-                <select id="screening-second_1">
-                    <option value="red">特別な操作を行う</option>
-                    <option value="blue">特別な操作を行わない</option>
+                <select id="screening-first-2">
+                    <option value="Yes">特別な操作を行う</option>
+                    <option value="No">特別な操作を行わない</option>
                 </select><br>
-                    <form action="#" method="post">
-                        <p>特別な操作の内容：<br>
-                            <textarea name="comment" cols="30" rows="5"></textarea></p>
-                    </form>
+                <p class="problem-text">
+                    特別な操作を行う場合：培地に
+                    <input type="text" id="screening-first-3">
+                    を加える
+                </p>
             </section> 
 
             <section class="answer-form" style="text-align:center">
                 <h1 class="problem-text">
                     二つ目の培地    
                 </h1>
-                <select id="screening-first">
-                    <option value="red">アミノ酸Aを含む</option>
-                    <option value="blue">アミノ酸Aを含まない</option>
+                <select id="screening-second-1">
+                    <option value="Yes">アミノ酸Aを含む</option>
+                    <option value="No">アミノ酸Aを含まない</option>
                 </select><br>
-                <select id="screening-second">
-                    <option value="red">特別な操作を行う</option>
-                    <option value="blue">特別な操作を行わない</option>
+                <select id="screening-second-2">
+                    <option value="Yes">特別な操作を行う</option>
+                    <option value="No">特別な操作を行わない</option>
                 </select><br>
-                    <form action="#" method="post">
-                        <p>特別な操作の内容：<br>
-                            <textarea name="comment" cols="30" rows="5"></textarea></p>
-                    </form>
+                <p class="problem-text">
+                    特別な操作を行う場合：培地に
+                    <input type="text" id="screening-second-3">
+                    を加える
+                </p>
             </section> 
-            <div style="text-align: center;"> <button id="peptide-answer-decision">確定</button> </div>
+            <div style="text-align: center;"> <button id="peptide-answer-decision">確定</button>
+            </div>
         </div>
         <div id="footer"></div>
+
+        <script>
+            const answer_button = document.getElementById('peptide-answer-decision');
+            answer_button.addEventListener('click', function(){
+                let choice_first_1 = document.getElementById('screening-first-1');
+                let choice_first_2 = document.getElementById('screening-first-2');
+                let choice_first_3 = document.getElementById('screening-first-3');
+                let choice_second_1 = document.getElementById('screening-second-1');
+                let choice_second_2 = document.getElementById('screening-second-2');
+                let choice_second_3 = document.getElementById('screening-second-3');
+
+                let is_correct = 
+                choice_first_1.value=='No'
+                && choice_first_2.value=='Yes'
+                && choice_first_3.value=='アンピシリン'
+                && choice_second_1.value=='Yes'
+                && choice_second_2.value=='No'
+                && choice_second_3.value=='';
+
+                let result = is_correct ? 'correct' : 'incorrect';
+    
+                location.href = "./feedback_screening_" + result + ".html";
+            });
+        </script>
     </body>
 </html>

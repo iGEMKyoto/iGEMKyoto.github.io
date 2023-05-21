@@ -32,13 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
 //     $("#footer").load("./footer.html");
 // });
 
-// 年度をGet
+// 現在の年度をGet
+// As this homepage is no longer maintained, fiscal year is fixed at 2022. (Bug fix on 2023/05/21)
 function get_fiscal_year() {
-    const DATE = new Date();
-    let year = DATE.getFullYear();
-    let month = DATE.getMonth();
-    if(month < 4) --year;
-    return year;
+    return 2022
 }
 
 // team
